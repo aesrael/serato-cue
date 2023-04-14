@@ -1,0 +1,55 @@
+on run {input, parameters}
+	
+tell application "Serato DJ Pro"
+	activate
+	display dialog "Enter the number of tracks to cue:" default answer 1
+	set trackCountsToCue to text returned of result as integer
+	
+	tell application "System Events"
+		set BeatJumpForwardX to 461 -- coord x
+		set BeatJumpForwardY to 206 -- coord y
+		set wait to 0.2
+		
+		-- Go through the tracks in the current selection
+		repeat trackCountsToCue times
+			-- Load the track into the left deck
+			key code 123 using {shift down}
+			
+			-- Set the first cue point (bar 1 - typ. intro)
+			delay wait
+			key code 18 using {control down}
+			
+			-- Click the beat jump button & set the 2nd cue point (bar 9 - typ. verse)
+			delay wait
+			do shell script "/opt/homebrew/bin/cliclick c:" & BeatJumpForwardX & "," & BeatJumpForwardY
+			key code 19 using {control down}
+			
+			-- Click the beat jump button twice & set the 3rd cue point (bar 25 - typ. pre/chorus)	
+			delay wait
+			do shell script "/opt/homebrew/bin/cliclick c:" & BeatJumpForwardX & "," & BeatJumpForwardY
+			do shell script "/opt/homebrew/bin/cliclick c:" & BeatJumpForwardX & "," & BeatJumpForwardY
+			key code 20 using {control down}
+			
+			-- Click the beat jump button twice & set the 4th cue point (bar 41 - typ. into song)	
+			delay wait
+			do shell script "/opt/homebrew/bin/cliclick c:" & BeatJumpForwardX & "," & BeatJumpForwardY
+			do shell script "/opt/homebrew/bin/cliclick c:" & BeatJumpForwardX & "," & BeatJumpForwardY
+			key code 21 using {control down}
+			
+			-- Click the beat jump button thrice & set the 5th cue point - 65(winding down)
+			delay wait
+			do shell script "/opt/homebrew/bin/cliclick c:" & BeatJumpForwardX & "," & BeatJumpForwardY
+			do shell script "/opt/homebrew/bin/cliclick c:" & BeatJumpForwardX & "," & BeatJumpForwardY
+			do shell script "/opt/homebrew/bin/cliclick c:" & BeatJumpForwardX & "," & BeatJumpForwardY
+			key code 23 using {control down}
+			
+			-- click down key to go to next track
+			key code 125
+			delay wait
+		end repeat
+	end tell
+	
+end tell
+	
+	return input
+end run
