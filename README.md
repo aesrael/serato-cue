@@ -34,6 +34,6 @@ When the script runs, it will prompt you to enter the number of tracks you want 
 - The cliclick commands are used to click the beat jump button in Serato DJ Pro. These commands may not work if you have changed the default layout of the Serato DJ Pro interface.
 - Use this script at your own risk. Make sure to backup your tracks before running this script.
 
-## make script into keyboard shortcut
+## exec script from serato using keyboard shortcut
 
 see [guide here](https://apple.stackexchange.com/a/276839)
