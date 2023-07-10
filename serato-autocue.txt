@@ -1,13 +1,11 @@
-on run {input, parameters}
-	
 tell application "Serato DJ Pro"
 	activate
 	display dialog "Enter the number of tracks to cue:" default answer 1
 	set trackCountsToCue to text returned of result as integer
 	
 	tell application "System Events"
-		set BeatJumpForwardX to 461 -- coord x
-		set BeatJumpForwardY to 206 -- coord y
+		set BeatJumpForwardX to 519 -- coord x
+		set BeatJumpForwardY to 231 -- coord y
 		set wait to 0.2
 		
 		-- Go through the tracks in the current selection
@@ -50,6 +48,5 @@ tell application "Serato DJ Pro"
 	end tell
 	
 end tell
-	
-	return input
-end run
+
+return

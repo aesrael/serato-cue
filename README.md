@@ -21,8 +21,8 @@ brew install cliclick
 1. Open Serato DJ Pro and select the tracks you want to set cue points on.
 2. Open the Script Editor application on your Mac.
 3. Paste the script into a new script window.
-4. Update the trackCountsToCue variable in the script to the number of tracks you want to set cue points on.
-5. Save the script with a descriptive name (e.g. "Serato Cue Points").
+4. Modify the BeatJumpForwardX & BeatJumpForwardY coordinates to point to the beat jump right button (you can get the coodinates using the take screenshot tool with cmd + shift + 4)
+5. You can update the beats at which the cue points are set, remove or add more clicks ("do shell....clickclick") as needed.
 6. In the Script Editor application, select Run to execute the script.
 
 When the script runs, it will prompt you to enter the number of tracks you want to set cue points on. After you enter the number, the script will load the first track into the left deck and set the cue points. It will then load the next track and repeat the process until all tracks have been cued.
